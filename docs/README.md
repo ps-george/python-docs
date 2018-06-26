@@ -1,14 +1,14 @@
 # How to deploy new docs
 
-Run `make_docs.sh` script.
+Run `make_docs.py` script.
 
 It does the following:
 
 1. Have two source folders; as follows:
 ```
     .
-    ├── locust-nest (master)
-    └── locust-nest-docs/html (gh-pages)
+    ├── python-docs (master)
+    └── tmp_python-docs/html (gh-pages)
 ```
 2. Runs `make docs` in the master branch.
 
