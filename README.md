@@ -20,5 +20,8 @@ pip install -r docs/require.txt
 ```
 
 4. Run [make_docs.py](docs/make_docs.py)
+```bash
+python docs/make_docs.py
+```
 
 After the first time setup, all you need to run is `python make_docs.py`
