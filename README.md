@@ -12,6 +12,13 @@ git rm --cached -r .
 git commit -m "Initial commit" --allow-empty
 git push -u origin gh-pages
 ```
+5. Install pip requirements (ideally in a virtualenv)
+```bash
+virtualenv -p python3 venv
+source venv/bin/activate
+pip install -r docs/require.txt
+```
+
 4. Run [make_docs.py](docs/make_docs.py)
 
 After the first time setup, all you need to run is `python make_docs.py`
