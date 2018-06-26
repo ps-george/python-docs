@@ -1,0 +1,6 @@
+# Global config for docs
+
+username: ps-george # github username
+project: python-docs # name of project
+copyright: 2018, George Punter # copyright
+author: George Punter # name of author
