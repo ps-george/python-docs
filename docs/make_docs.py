@@ -22,10 +22,10 @@ def main(argv):
        
     username = params.get('username')
     project = params.get('project')
-    build_dir  = os.path.abspath('../../{0}-docs').format(project)
+    repo_name = params.get('repo_name')
+    build_dir  = os.path.abspath('../../tmp_{0}').format(project)
     github_dir = '{0}/html'.format(build_dir)
 
-    # `make html` into project-docs/html
     try:
         os.mkdir(build_dir)
     except OSError as exc:
@@ -40,7 +40,7 @@ def main(argv):
     clone_command = [
         'git',
         'clone',
-        'git@github.com:{0}/{1}'.format(username, project),
+        'git@github.com:{0}/{1}'.format(username, repo_name),
         '-b',
         'gh-pages',
         github_dir

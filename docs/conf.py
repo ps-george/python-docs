@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*- #
+#_dirnameo-*- coding: utf-8 -*- #
 # Configuration file for the Sphinx documentation builder.
 #
 # This file does only contain a selection of the most common options. For a
@@ -24,7 +24,8 @@ sys.path.insert(0, os.path.abspath('../'))
 
 # -- Project information -----------------------------------------------------
 
-project = None
+project = None # Project dir i.e. location of project files
+repo_name = None # Project name i.e. Github repo name, PyPi package name
 copyright = None
 author = None
 description = None
@@ -44,6 +45,7 @@ if os.path.exists(_params_file):
         return ptype if ptype is not None else params.get(string, None)
 
     project = set_param(project, 'project')
+    repo_name = set_param(repo_name, 'repo_name')
     copyright = set_param(copyright, 'copyright')
     author = set_param(author, 'author')
     description = set_param(description, 'description')
@@ -72,7 +74,7 @@ if version is None:
 
 # The full version, including alpha/beta/rc tags
 release = '{}beta'.format(version)
-print(project, copyright, author, '{0}'.format(description), version, release)
+print(repo_name, project, copyright, author, '{0}'.format(description), version, release)
 
 # -- General configuration ---------------------------------------------------
 
@@ -87,7 +89,7 @@ extensions = [
     'sphinx.ext.autodoc', # Autodoc automatically documents
     'sphinx.ext.napoleon', # Napolean parses PEP-style docstrings.
     'sphinx.ext.viewcode', # adds links to code to docs 
-    'sphinx.ext.githubpages', # githubpages for generating a username.github.io/project site with this documentation
+    'sphinx.ext.githubpages', # githubpages for generating a username.github.io/repo_name site with this documentation
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -178,7 +180,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, '{0}.tex'.format(project), u'{0} Documentation'.format(project),
+    (master_doc, '{0}.tex'.format(project), u'{0} Documentation'.format(repo_name),
      author, 'manual'),
 ]
 
@@ -188,7 +190,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, project, u'{0} Documentation'.format(project),
+    (master_doc, project, u'{0} Documentation'.format(repo_name),
      [author], 1)
 ]
 
@@ -199,8 +201,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, project, u'{0} Documentation'.format(project),
-     author, project, description,
+    (master_doc, project, u'{0} Documentation'.format(repo_name),
+     author, repo_name, description,
      'Miscellaneous'),
 ]
 

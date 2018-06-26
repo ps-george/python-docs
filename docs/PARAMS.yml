@@ -1,6 +1,7 @@
 # Global config for docs
 
 username: ps-george # github username
-project: python-docs # name of project
+project: python_docs # location of the project files
+repo_name: python-docs # name of project
 copyright: 2018, George Punter # copyright
 author: George Punter # name of author

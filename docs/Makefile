@@ -6,7 +6,7 @@ SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
 SPHINXPROJ    = python-docs
 SOURCEDIR     = .
-BUILDDIR      = ../../python-docs-docs
+BUILDDIR      = ../../tmp_python_docs
 PDFBUILDDIR = /tmp
 PDF = ../manual.pdf
 
