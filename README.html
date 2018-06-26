@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="python-docs" href="README.html" /> 
+    <link rel="prev" title="python-docs" href="index.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -47,7 +47,7 @@
           
 
           
-            <a href="#" class="icon icon-home"> python-docs
+            <a href="index.html" class="icon icon-home"> python-docs
           
 
           
@@ -81,8 +81,11 @@
               
             
             
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="README.html">python-docs</a></li>
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">python-docs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#first-time-setup">First time setup</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -97,7 +100,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">python-docs</a>
+          <a href="index.html">python-docs</a>
         
       </nav>
 
@@ -126,7 +129,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="#">Docs</a> &raquo;</li>
+      <li><a href="index.html">Docs</a> &raquo;</li>
         
       <li>python-docs</li>
     
@@ -134,7 +137,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/README.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -148,30 +151,38 @@
            <div itemprop="articleBody">
             
   <div class="section" id="python-docs">
-<h1>python-docs<a class="headerlink" href="#python-docs" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference external" href="https://github.com/ps-george/python-docs/blob/master/LICENSE"><img alt="license" src="https://img.shields.io/github/license/ps-george/python-docs.svg" /></a> <a class="reference external" href="https://github.com/ps-george/python-docs/graphs/contributors"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/ps-george/python-docs.svg" /></a></p>
-<ul class="simple">
-<li><a class="reference external" href="https://ps-george.github.io/python-docs">project docs</a></li>
-</ul>
-</div>
-<div class="section" id="table-of-contents">
-<h1>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="README.html">python-docs</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="README.html#first-time-setup">First time setup</a></li>
-</ul>
+<span id="python-docs"></span><h1>python-docs<a class="headerlink" href="#python-docs" title="Permalink to this headline">¶</a></h1>
+<p>Reusable code for setting up Sphinx and a github.io website for a repository.</p>
+<div class="section" id="first-time-setup">
+<span id="first-time-setup"></span><h2>First time setup<a class="headerlink" href="#first-time-setup" title="Permalink to this headline">¶</a></h2>
+<ol>
+<li><p class="first">Fill in the parameters in <a class="reference external" href="docs/PARAMS.yml">docs/PARAMS.yml</a>.</p>
 </li>
-</ul>
+<li><p class="first">Adjust the parameters in <a class="reference external" href="docs/Makefile">docs/Makefile</a> to match those in <a class="reference external" href="docs/PARAMS.yml">docs/PARAMS.yml</a></p>
+</li>
+<li><p class="first">Create a gh-pages branch</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git checkout --orphan gh-pages
+git rm --cached -r .
+git commit -m <span class="s2">&quot;Initial commit&quot;</span> --allow-empty
+git push -u origin gh-pages
+</pre></div>
 </div>
+</li>
+<li><p class="first">Install pip requirements (ideally in a virtualenv)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>virtualenv -p python3 venv
+<span class="nb">source</span> venv/bin/activate
+pip install -r docs/require.txt
+</pre></div>
 </div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
-<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
-<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
-</ul>
+</li>
+<li><p class="first">Run <a class="reference external" href="docs/make_docs.py">make_docs.py</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python docs/make_docs.py
+</pre></div>
+</div>
+</li>
+</ol>
+<p>After the first time setup, all you need to run is <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">make_docs.py</span></code></p>
+</div>
 </div>
 
 
@@ -182,8 +193,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="README.html" class="btn btn-neutral float-right" title="python-docs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
+        <a href="index.html" class="btn btn-neutral" title="python-docs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
