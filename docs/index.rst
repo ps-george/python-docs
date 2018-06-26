@@ -12,6 +12,7 @@ python-docs
 
 
 - `project docs`_
+- `project source code`_
 
 .. _`project docs`: https://ps-george.github.io/python-docs
 .. _`project source code`: https://github.com/ps-george/python-docs
