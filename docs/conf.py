@@ -24,8 +24,8 @@ sys.path.insert(0, os.path.abspath('../'))
 
 # -- Project information -----------------------------------------------------
 
-project = None # Project dir i.e. location of project files
-repo_name = None # Project name i.e. Github repo name, PyPi package name
+project_files = None # Project dir i.e. location of project files
+project = None # Project name i.e. Github repo name, PyPi package name
 copyright = None
 author = None
 description = None
@@ -44,8 +44,8 @@ if os.path.exists(_params_file):
     def set_param(ptype, string):
         return ptype if ptype is not None else params.get(string, None)
 
+    project_files = set_param(project_files, 'project_files')
     project = set_param(project, 'project')
-    repo_name = set_param(repo_name, 'repo_name')
     copyright = set_param(copyright, 'copyright')
     author = set_param(author, 'author')
     description = set_param(description, 'description')
@@ -58,7 +58,7 @@ if version is None:
     _version_re = re.compile(r'__version__\s*=\s*(.*)')
     _version_file = os.path.join(
             os.path.abspath('../'),
-            '{0}'.format(project),
+            '{0}'.format(project_files),
             'version.py')
     if os.path.exists(_version_file):
         with open(_version_file, 'rb') as f:
@@ -74,7 +74,6 @@ if version is None:
 
 # The full version, including alpha/beta/rc tags
 release = '{}beta'.format(version)
-print(repo_name, project, copyright, author, '{0}'.format(description), version, release)
 
 # -- General configuration ---------------------------------------------------
 
@@ -89,18 +88,17 @@ extensions = [
     'sphinx.ext.autodoc', # Autodoc automatically documents
     'sphinx.ext.napoleon', # Napolean parses PEP-style docstrings.
     'sphinx.ext.viewcode', # adds links to code to docs 
-    'sphinx.ext.githubpages', # githubpages for generating a username.github.io/repo_name site with this documentation
+    'sphinx.ext.githubpages', # githubpages for generating a username.github.io/project site with this documentation
 ]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
-#source_parsers = {
-#}
+source_parsers = {'.md': CommonMarkParser}
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
-source_suffix = ['.rst']
+source_suffix = ['.rst', '.md']
 
 # The master toctree document.
 master_doc = 'index'
@@ -180,7 +178,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, '{0}.tex'.format(project), u'{0} Documentation'.format(repo_name),
+    (master_doc, '{0}.tex'.format(project), u'{0} Documentation'.format(project),
      author, 'manual'),
 ]
 
@@ -190,7 +188,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, project, u'{0} Documentation'.format(repo_name),
+    (master_doc, project, u'{0} Documentation'.format(project),
      [author], 1)
 ]
 
@@ -201,8 +199,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, project, u'{0} Documentation'.format(repo_name),
-     author, repo_name, description,
+    (master_doc, project, u'{0} Documentation'.format(project),
+     author, project, description,
      'Miscellaneous'),
 ]
 

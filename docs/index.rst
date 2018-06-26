@@ -1,26 +1,28 @@
-{{myproject}}
+python-docs
 =============
 |license| |contributors|
 
-.. |license| image:: https://img.shields.io/github/license/{{username}}/{{myproject}}.svg
+.. |license| image:: https://img.shields.io/github/license/ps-george/python-docs.svg
   :alt: license
-  :target: https://github.com/{{username}}/{{myproject}}/blob/master/LICENSE
+  :target: https://github.com/ps-george/python-docs/blob/master/LICENSE
 
-.. |contributors| image:: https://img.shields.io/github/contributors/{{username}}/{{myproject}}.svg
+.. |contributors| image:: https://img.shields.io/github/contributors/ps-george/python-docs.svg
   :alt: GitHub contributors
-  :target: https://github.com/{{username}}/{{myproject}}/graphs/contributors
+  :target: https://github.com/ps-george/python-docs/graphs/contributors
 
 
 - `project docs`_
 
-.. _`project docs`: https://{{username}}.github.io/{{myproject}}
-.. _`project source code`: https://github.com/{{username}}/{{myproject}}
+.. _`project docs`: https://ps-george.github.io/python-docs
+.. _`project source code`: https://github.com/ps-george/python-docs
 
 Table of Contents
 =================
 
 .. toctree::
    :maxdepth: 2
+
+   README
 
 
 Indices and tables

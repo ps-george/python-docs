@@ -21,9 +21,9 @@ def main(argv):
                 sys.exit(1)
        
     username = params.get('username')
+    project_files = params.get('project_files')
     project = params.get('project')
-    repo_name = params.get('repo_name')
-    build_dir  = os.path.abspath('../../tmp_{0}').format(project)
+    build_dir  = os.path.abspath('../../tmp_{0}').format(project_files)
     github_dir = '{0}/html'.format(build_dir)
 
     try:
@@ -40,7 +40,7 @@ def main(argv):
     clone_command = [
         'git',
         'clone',
-        'git@github.com:{0}/{1}'.format(username, repo_name),
+        'git@github.com:{0}/{1}'.format(username, project),
         '-b',
         'gh-pages',
         github_dir
@@ -48,7 +48,6 @@ def main(argv):
 
     subprocess.run(clone_command)
     subprocess.run(['make', 'html'])
-
     # Commit/push changes
     commit = input("Commit to gh-pages branch? [y/n]\n")
     if commit in yeses:
