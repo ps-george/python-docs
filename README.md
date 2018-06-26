@@ -9,6 +9,7 @@ Reusable code for setting up Sphinx and a github.io website for a repository.
 ```bash
 git checkout --orphan gh-pages
 git rm --cached -r
+git commit -m "Initial commit" --allow-empty
 git push -u origin gh-pages
 ```
 4. Run [make_docs.py](docs/make_docs.py)
